@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="text-stone-300 h-screen bg-black pt-5 container pl-3 list-none flex-col">
-      <Link to="" className="text-2xl pb-20 font-bold cursor-pointer text-white">
+    <div className="text-stone-300 h-screen bg-black pt-5 container pl-3 list-none flex-col  sticky top-0">
+      <Link
+        to=""
+        className="text-2xl pb-20 font-bold cursor-pointer text-white"
+      >
         <i class=" mx-3 bi bi-boombox-fill"></i>Spotify
       </Link>
       <li className="my-4 text-sm font-bold cursor-pointer hover:text-white focus:text-white">
