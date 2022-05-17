@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Components/NavBar/Navbar';
 import Home from './Components/Home/Home';
 import Search from './Components/Search/Search';
+import { Router } from './Router';
 
 import { MusicPlayer } from './Components/MusicPlayer/MusicPlayer';
 
@@ -13,11 +14,8 @@ function App() {
       <div>
         <Navbar />
       </div>
-      {/* <div className="col-span-5">
-        <Home />
-      </div> */}
       <div className="col-span-5">
-        <Search/>
+        <Router/>
       </div>
     </div>
     {/* <MusicPlayer/> */}
