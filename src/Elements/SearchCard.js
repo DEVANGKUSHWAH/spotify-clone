@@ -1,9 +1,22 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+const Colors = ["#ba5d07", "#8d67ab", "#a0c3d2","#ffc864","#1e3264","#e61e32","#f037a5",];
 export const SearchCard = (props) => {
+  const [bgColor,setBgColor] = useState(Colors);
+  useEffect(()=>{
+    const item = bgColor[
+      Math.floor(Math.random() * bgColor.length)
+    ];
+    setBgColor(item);
+  },[])
   return (
-    <div className="w-44 h-66 bg-neutral-800 hover:bg-stone-800 rounded-lg pb-4">
-      <div className="w-44 h-44 p-2">
+    <div className={`w-44 h-66 overflow-hidden rounded-lg pb-4 mb-3`} style={{
+      backgroundColor: bgColor
+    }}>
+      <div className="text-white mx-3 mt-3">
+        <h3> {(props.search.name)}</h3>
+        <p className="text-sm">{(props.search.name)}</p>
+      </div>
+      <div className="w-32 rotate-45 h-32 ml-20">
         <img
           className="h-full w-full rounded-lg "
           alt=""
@@ -13,10 +26,7 @@ export const SearchCard = (props) => {
           }
         />
       </div>
-      <div className="text-white mx-3 mt-2">
-        <h3> {(props.search.name)}</h3>
-        <p className="text-sm">{(props.search.name)}</p>
-      </div>
+      
     </div>
   );
 }

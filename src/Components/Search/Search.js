@@ -54,7 +54,7 @@ const Search = () => {
   return (
     <div>
       {searchalbums.map((searchalbum) => (
-        <div className="mt-16">
+        <div className="mt-2">
           <div className="text-white grid grid-cols-8 ml-8 mb-4">
             <h2 className="font-bold text-2xl mt-0 mb-2 col-span-7">
               {searchalbum.name}
