@@ -44,6 +44,21 @@ const Home = () => {
         },
       ],
     },
+    {
+      name: "Popular Albums",
+      list: [
+        {
+          name: "Arabic Kuthu- Halmithi Habibu",
+          artist: "Anirudh Ravichandra, Jonita Gandhi",
+          src: "https://wallpaperaccess.com/full/6298884.png",
+        },
+        {
+          name: "Rataan Lambiyaan",
+          artist: "Tanishk Baghchi,Jubin Nautiyal Asees Kaur",
+          src: "https://wallpaperaccess.com/full/6852769.jpg",
+        },
+      ],
+    },
   ];
 
   return (
