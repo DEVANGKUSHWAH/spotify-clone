@@ -14,11 +14,19 @@ function App() {
       <div>
         <Navbar />
       </div>
-      <div className="col-span-5">
+      <div className="col-span-5 mb-32">
         <Router/>
       </div>
     </div>
-    {/* <MusicPlayer/> */}
+    <div className="bg-stone-800
+             text-3xl text-white text-center
+             border-t-2 border-stone-700
+             fixed
+             inset-x-0
+             bottom-0
+             ">
+    <MusicPlayer/>
+    </div>
     </>
   );
 }
