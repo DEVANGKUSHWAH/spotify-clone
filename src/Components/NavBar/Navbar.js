@@ -12,7 +12,7 @@ const Navbar = () => {
         <i class=" mx-3 bi bi-boombox-fill"></i>Spotify
       </Link>
       <li className="my-4 text-sm font-bold cursor-pointer hover:text-white focus:text-white">
-        <Link to="/">
+        <Link to="/home">
           <i className="mx-3 bi bi-house"></i>Home
         </Link>
       </li>

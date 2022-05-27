@@ -14,7 +14,7 @@ function App() {
       <div>
         <Navbar />
       </div>
-      <div className="col-span-5 mb-32">
+      <div className="col-span-5 mb-40">
         <Router/>
       </div>
     </div>
