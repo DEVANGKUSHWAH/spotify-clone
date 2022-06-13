@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-
+import "./MusicPlayer.css"
 export function MusicPlayer() {
   const musicTracks = [
     {
@@ -84,7 +84,7 @@ export function MusicPlayer() {
 
   return (
       <AudioPlayer
-        style={{ height: "150px",backgroundColor:"#1c1917", color:"white" }}
+        style={{ height: "130px",backgroundColor:"#1c1917", color:"white" }}
         autoPlay
         src={musicTracks[trackIndex].src}
         onPlay={(e) => console.log("onPlay")}
