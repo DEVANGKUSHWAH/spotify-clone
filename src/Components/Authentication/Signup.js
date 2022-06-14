@@ -1,7 +1,7 @@
-import React from 'react'
-import { Signup } from './Signup';
+import React from "react";
+import { Login } from "./Login";
 
-export const Login = () => {
+export const Signup = () => {
   return (
     <>
       <div className="lg:flex">
@@ -21,32 +21,34 @@ export const Login = () => {
               className="text-center text-4xl text-green-500 font-display font-semibold lg:text-left xl:text-5xl
                     xl:text-bold"
             >
-              Log in
+              Sign up
             </h2>
             <div className="mt-12">
               <form>
                 <div>
                   <div className="text-sm font-bold text-gray-700 tracking-wide">
+                    User Name 
+                  </div>
+                  <input
+                    className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500"
+                    type=""
+                    placeholder="User Name "
+                  />
+                </div>
+                <div>
+                  <div className="mt-8 text-sm font-bold text-gray-700 tracking-wide">
                     Email Address
                   </div>
                   <input
                     className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500"
                     type=""
-                    placeholder="mike@gmail.com"
+                    placeholder="mike@gmail."
                   />
                 </div>
                 <div className="mt-8">
                   <div className="flex justify-between items-center">
                     <div className="text-sm font-bold text-gray-700 tracking-wide">
                       Password
-                    </div>
-                    <div>
-                      <a
-                        className="text-xs font-display font-semibold text-green-500 hover:text-green-700
-                                        cursor-pointer"
-                      >
-                        Forgot Password?
-                      </a>
                     </div>
                   </div>
                   <input
@@ -55,30 +57,42 @@ export const Login = () => {
                     placeholder="Enter your password"
                   />
                 </div>
+                <div className="mt-8">
+                  <div className="flex justify-between items-center">
+                    <div className="text-sm font-bold text-gray-700 tracking-wide">
+                      Confirm Password
+                    </div>
+                  </div>
+                  <input
+                    className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-green-500"
+                    type=""
+                    placeholder="Confirm your password"
+                  />
+                </div>
                 <div className="mt-10">
                   <button
                     className="bg-green-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-green-600
                                 shadow-lg"
                   >
-                    Log In
+                    Sign Up
                   </button>
                 </div>
               </form>
               <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                Don't have an account ?{" "}
+                Already have an account ?{" "}
                 <a
                   className="cursor-pointer text-green-600 hover:text-green-800"
-                  href="/signup"
-                  onClick={Signup}
+                  href="/login"
+                  onClick={Login}
                 >
-                  Sign up
+                  Login
                 </a>
               </div>
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex items-center justify-center bg-green-50 flex-1 h-screen">
+        <div className="hidden lg:flex items-center justify-center bg-green-50 flex-1 h-">
           <div className="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
             <svg
               className="w-5/6 mx-auto"
@@ -87,7 +101,7 @@ export const Login = () => {
               data-name="Layer 1"
               viewBox="0 0 528.71721 699.76785"
             >
-              <title>Login</title>
+              <title>Signup</title>
               <rect y="17.06342" width="444" height="657" fill="#535461" />
               <polygon
                 points="323 691.063 0 674.063 0 17.063 323 0.063 323 691.063"
@@ -239,4 +253,4 @@ export const Login = () => {
       </div>
     </>
   );
-}     
+};
