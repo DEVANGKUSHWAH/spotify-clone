@@ -1,16 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './Components/NavBar/Navbar';
-import Home from './Components/Home/Home';
-import Search from './Components/Search/Search';
 import { Router } from './Router';
 
-import { MusicPlayer } from './Components/MusicPlayer/MusicPlayer';
-
+import { Provider } from 'react-redux';
+import {store} from './store';
 function App() {
   return (
     <>
+        <Provider store = {store}>
         <Router/>
+        </Provider>
     </>
   );
 }
