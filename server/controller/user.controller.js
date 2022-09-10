@@ -6,8 +6,10 @@ const user = require('../models/user');
 const apiResponse  = require("../helper/helper");
 exports.userSignup = async (req, res) => {
   const { userName, email, password, confirmPassword } = req.body;
+  console.log(userName, email, password, confirmPassword,req);
   try {
-    const userFound = user.find({ $or: [{ email }, { userName }] });
+    const userFound = await user.find({ $or: [{ email:email }, { userName:userName }] });
+    console.log(userFound)
     if (userFound.length) {
       return apiResponse(res, { statusCode: 409, error: "User already exist" });
     }
