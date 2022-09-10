@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import React from 'react'
 import { Signup } from './Signup';
 
 export const Login = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("logged In")
+    }
   return (
     <>
       <div className="lg:flex">
         <div className="lg:w-1/2 xl:max-w-screen-sm">
-          <div className="py-12 bg-green-50 lg:bg-white flex justify-center lg:justify-start lg:px-12">
+          <div className="mt-2 bg-green-50 lg:bg-white flex justify-center lg:justify-start lg:px-12">
             <div className="cursor-pointer flex items-center">
-              <div className="h-48 w-48">
+              <div className="mt-2 h-16 w-48">
                 <img
                   src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png"
                   alt="new"
@@ -24,7 +29,7 @@ export const Login = () => {
               Log in
             </h2>
             <div className="mt-12">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div>
                   <div className="text-sm font-bold text-gray-700 tracking-wide">
                     Email Address
@@ -41,12 +46,13 @@ export const Login = () => {
                       Password
                     </div>
                     <div>
-                      <a
+                      <Link
                         className="text-xs font-display font-semibold text-green-500 hover:text-green-700
                                         cursor-pointer"
+                                        to="/forgot-password"
                       >
                         Forgot Password?
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <input
@@ -56,7 +62,7 @@ export const Login = () => {
                   />
                 </div>
                 <div className="mt-10">
-                  <button
+                  <button type="submit"
                     className="bg-green-500 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-green-600
                                 shadow-lg"
@@ -67,13 +73,13 @@ export const Login = () => {
               </form>
               <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
                 Don't have an account ?{" "}
-                <a
+                <Link
                   className="cursor-pointer text-green-600 hover:text-green-800"
-                  href="/signup"
+                  to="/signup"
                   onClick={Signup}
                 >
                   Sign up
-                </a>
+                </Link>
               </div>
             </div>
           </div>

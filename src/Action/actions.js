@@ -6,15 +6,15 @@ export const  ActionTypes = {
 }
 
 export class Actions {
-    logIn = (payload) => ({
+    static logIn = (payload) => ({
         type:ActionTypes.LOG_IN,
         payload
     })
-    logInSuccess = (payload) => ({
+    static logInSuccess = (payload) => ({
         type:ActionTypes.LOG_IN_SUCCESS,
         payload
     })
-    logInError = (payload) => ({
+    static logInError = (payload) => ({
         type:ActionTypes.LOG_IN_ERROR,
         payload
     })
