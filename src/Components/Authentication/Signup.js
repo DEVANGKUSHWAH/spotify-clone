@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Actions } from "../../Action/actions";
-import { Login } from "./Login";
 
 export const Signup = () => {
   const userRegistered = useSelector(
@@ -35,7 +34,7 @@ export const Signup = () => {
     setUser({ ...user, [name]: value });
   };
   const onSubmit = () => {
-    dispatch(Actions.logIn(user));
+    dispatch(Actions.register(user));
   };
   return (
     <>
@@ -133,7 +132,6 @@ export const Signup = () => {
                 <Link
                   className="cursor-pointer text-green-600 hover:text-green-800"
                   to="/login"
-                  onClick={Login}
                 >
                   Login
                 </Link>

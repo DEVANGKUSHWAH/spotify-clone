@@ -1,9 +1,10 @@
 // import { user } from "../models/user";
 // import * as bcrypt from "bcrypt";
+// import { apiResponse } from "../helper/helper";
 const bcrypt = require('bcrypt')
 const user = require('../models/user');
-// import { apiResponse } from "../helper/helper";
 const apiResponse  = require("../helper/helper");
+const jwt = require('jsonwebtoken')
 exports.userSignup = async (req, res) => {
   const { userName, email, password, confirmPassword } = req.body;
   console.log(userName, email, password, confirmPassword,req);
@@ -41,5 +42,25 @@ exports.userSignup = async (req, res) => {
     });
   }
 };
-
-// module.exports = userSignup;
+exports.userLogin = async(req,res) => {
+  try{
+    const {email,password} = req.body;
+    const userFound = await user.findOne({email}).lean();
+    console.log("here");
+    if(!userFound){
+      return apiResponse(res,{statusCode:400,error:"Invalid email"})
+    }
+    else{
+      const passwordMatched = await bcrypt.compare(password,userFound.password);
+      if(!passwordMatched){
+        return apiResponse(res,{statusCode:400,error:"Invalid Password"})
+      }
+      const secret = 'devPriyaProject921'
+      const userToken  = jwt.sign({data:userFound},secret,{ expiresIn: '1m' })
+      apiResponse(res,{data:{...userFound,userToken},statusCode:200,message:"Login Successfull"})
+    }
+  }
+  catch(error){
+    return apiResponse(res,{statusCode:500,error:"Problem while logging in user, Please contact administration for further help"})
+  }
+}
