@@ -4,8 +4,9 @@ import { Signup } from "./Components/Authentication/Signup";
 import Home from "./Components/Home/Home";
 import Search from "./Components/Search/Search";
 import { Layout } from "./layout";
+import { ProtectedRoute } from "./protectedRoute";
 export const Router = () => {
-  const isAuthenticated = localStorage.getItem('authenticatedUser')
+const isAuthenticated = localStorage.getItem('authenticatedUser')
     return (
       <Routes>
         <Route path="/login" element={isAuthenticated?
@@ -15,19 +16,19 @@ export const Router = () => {
         <Route
           path="/"
           element = {
-              isAuthenticated?
+            <ProtectedRoute>
             <Layout>
               <Home />
-            </Layout>:<Navigate replace to={"/login"} />
+            </Layout></ProtectedRoute>
           }
         />
         <Route
           path="/Search"
           element={
-              isAuthenticated?
+            <ProtectedRoute>
             <Layout>
               <Search />
-            </Layout>:<Navigate replace to={"/login"}/>
+            </Layout></ProtectedRoute>
           }
         />
       </Routes>
