@@ -1,8 +1,10 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="text-stone-300 h-screen bg-black pt-5 container pl-3 list-none flex-col  sticky top-0">
       <Link
@@ -36,6 +38,13 @@ const Navbar = () => {
         <Link to="/">
           <i class="mx-3 bi bi-collection"></i>Liked Songs
         </Link>
+      </li>
+      <li className="my-4 text-sm font-bold cursor-pointer hover:text-white">
+        <a onClick={()=>{localStorage.removeItem('authenticatedUser')
+        return navigate('/login')
+      }}>
+          <i class="mx-3 bi bi-collection"></i>Logout
+        </a>
       </li>
       <hr className="brightness-50 mr-5 ml-3" />
       <li className="my-2 ml-3 mt-5 text-sm  cursor-pointer hover:text-white">

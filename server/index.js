@@ -25,7 +25,6 @@ mongoose
   });
 app.get("/", (req, res) => {
   res.send("Welcome to backend");
-  console.log("hereeeeeeeeeeee", req);
   return 1;
 });
 app.use('/user',userRouter)

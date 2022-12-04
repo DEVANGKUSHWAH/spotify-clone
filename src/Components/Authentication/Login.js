@@ -15,7 +15,7 @@ export const Login = () => {
   let loggedInUser = logInUserDetails;
   const navigate = useNavigate()
   useEffect(() => {
-    if (logInUserDetails.message) {
+    if (logInUserDetails?.message) {
       setMessage(logInUserDetails?.message);
       setLoginDetails({
         userName: "",
@@ -24,7 +24,7 @@ export const Login = () => {
         confirmPassword: "",
       });
       setTimeout(() => {
-      localStorage.setItem('authenticatedUser', logInUserDetails?.data?.userToken)
+    dispatch(Actions.cleanLoginMessage());
         navigate('/')
       }, "1000")
       // eslint-disable-next-line react-hooks/exhaustive-deps

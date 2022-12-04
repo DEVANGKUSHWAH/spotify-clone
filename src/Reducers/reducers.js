@@ -15,6 +15,11 @@ export function authReducer(state = initialState, action) {
       return {
         ...state, registeredUser: action.payload
       };
+    case ActionTypes.RESET_LOGIN:
+      console.log('here')
+      return{
+        ...state,loggedInUser:null
+      }
     case ActionTypes.LOG_IN_SUCCESS:
       localStorage.setItem('authenticatedUser',action.payload?.data.userToken)
       return {
