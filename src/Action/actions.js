@@ -8,6 +8,10 @@ export const  ActionTypes = {
    REGISTER_SUCCESS : "REGISTER_SUCCESS",
     REGISTER_ERROR: 'REGISTER_ERROR',
 
+    GET_CATEGORIES:"GET_CATEGORIES",
+    GET_CATEGORIES_SUCCESS:"GET_CATEGORIES_SUCCESS",
+    GET_CATEGORIES_ERROR:"GET_CATEGORIES_ERROR"
+
 
 }
 
@@ -38,5 +42,17 @@ export class Actions {
     })
     static cleanLoginMessage = () => ({
         type:ActionTypes.RESET_LOGIN
+    })
+
+    static getCategories = () => ({
+        type:ActionTypes.GET_CATEGORIES,
+    })
+    static getCategoriesSuccess = (payload) => ({
+        type:ActionTypes.GET_CATEGORIES_SUCCESS,
+        payload
+    })
+    static getCategoriesError = (payload) => ({
+        type:ActionTypes.GET_CATEGORIES_ERROR,
+        payload
     })
 }

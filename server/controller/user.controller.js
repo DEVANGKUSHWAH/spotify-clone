@@ -3,8 +3,10 @@
 // import { apiResponse } from "../helper/helper";
 const bcrypt = require('bcrypt')
 const user = require('../models/user');
+const playList = require('../models/playlist')
 const apiResponse  = require("../helper/helper");
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const category = require('../models/category');
 exports.userSignup = async (req, res) => {
   const { userName, email, password, confirmPassword } = req.body;
   try {

@@ -7,7 +7,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 const  userRouter = require("./routes/auth");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const playListRouter = require("./routes/playlist");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors())
@@ -28,3 +29,4 @@ app.get("/", (req, res) => {
   return 1;
 });
 app.use('/user',userRouter)
+app.use('/playList',playListRouter)

@@ -1,68 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Actions } from '../../Action/actions';
 import { SearchList } from '../SearchList/SearchList';
 
 
 const Search = () => {
-    const searchalbums = [
-      {
-        name: "Your top genres",
-        list: [
-          {
-            name: "Pop",
-            src: "",
-          },
-          {
-            name: "Bollywood",
-            src: "",
-          },
-        ],
-      },
-      {
-        name: "Browse all",
-        list: [
-          {
-            name: "Podcasts",
-            src: "",
-          },
-          {
-            name: "chart",
-            src: "",
-          },
-          {
-            name: "New Releases",
-            src: "",
-          },
-          {
-            name: "Discover",
-            src: "",
-          },
-          {
-            name: "Concerts",
-            src: "",
-          },
-          {
-            name: "Punjabi",
-            src: "",
-          },
-          {
-            name: "Tamil",
-            src: "",
-          },
-        ],
-      },
-    ];
+  const [searchAlbums,setSearchAlbums] = useState([])
+  const search = useSelector((state)=>state.playListReducer.categories)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(Actions.getCategories())
+  },[])
+  useEffect(()=>{
+    if(search?.data?.length){
+      console.log(search)
+      setSearchAlbums(search)
+    }
+  },[search])
   return (
     <div>
-      {searchalbums.map((searchalbum) => (
         <div className="mt-2">
           <div className="text-white grid grid-cols-8 ml-8 mb-4">
             <h2 className="font-bold text-2xl mt-0 mb-2 col-span-7">
-              {searchalbum.name}
+              Search 
             </h2>
           </div>
-          <SearchList search={searchalbum.list} />
-        </div>
-      ))}
+      {searchAlbums?.data &&
+          <SearchList search={searchAlbums.data} />
+          }
+          </div>
     </div>
   );
 }
