@@ -5,30 +5,47 @@ import Home from "./Components/Home/Home";
 import Search from "./Components/Search/Search";
 import { Layout } from "./layout";
 import { ProtectedRoute } from "./protectedRoute";
+import { useSelector } from "react-redux";
 export const Router = () => {
-const isAuthenticated = localStorage.getItem('authenticatedUser')
+const isAuthenticated = useSelector((state) => state.authReducer.loggedInUser);
     return (
       <Routes>
-        <Route path="/login" element={isAuthenticated?
-            <Navigate replace to = {"/"}/>:<Login/>} />
-        <Route path="/signup" element={isAuthenticated?
-            <Navigate replace to = {"/"}/>:<Signup />} />
+        <Route
+          path="/login"
+          element={isAuthenticated ? <Navigate replace to={"/"} /> : <Login />}
+        />
+        <Route
+          path="/signup"
+          element={isAuthenticated ? <Navigate replace to={"/"} /> : <Signup />}
+        />
         <Route
           path="/"
-          element = {
+          element={
             <ProtectedRoute>
-            <Layout>
-              <Home />
-            </Layout></ProtectedRoute>
+              <Layout>
+                <Home />
+              </Layout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/Search"
           element={
             <ProtectedRoute>
-            <Layout>
-              <Search />
-            </Layout></ProtectedRoute>
+              <Layout>
+                <Search />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/playlist/:id"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <Search />
+              </Layout>
+            </ProtectedRoute>
           }
         />
       </Routes>

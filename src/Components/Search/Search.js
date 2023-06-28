@@ -13,7 +13,6 @@ const Search = () => {
   },[])
   useEffect(()=>{
     if(search?.data?.length){
-      console.log(search)
       setSearchAlbums(search)
     }
   },[search])

@@ -16,11 +16,12 @@ const playListSchema = new mongoose.Schema({
     },
     hits:{
         type:Number,
-        required:true,
+        required:false,
         default:0
     }
 },{
     timestamps:true
 })
 
-const playList = mongoose.model('playlist',playListSchema,'playLists')
+const playList = mongoose.model('playlist',playListSchema,'playLists');
+module.exports = playList

@@ -16,7 +16,6 @@ export function authReducer(state = initialState, action) {
         ...state, registeredUser: action.payload
       };
     case ActionTypes.RESET_LOGIN:
-      console.log('here')
       return{
         ...state,loggedInUser:null
       }

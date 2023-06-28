@@ -1,20 +1,16 @@
-// import * as express from 'express';
-// import * as cors from "cors";
-// import * as mongoose from "mongoose";
-// import * as userRouter  from "./routes/auth";
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-const  userRouter = require("./routes/auth");
-const bodyParser = require('body-parser');
-const playListRouter = require("./routes/playlist");
+const bodyParser = require("body-parser");
+const routes = require("./routes/routes");
+const path = require("path")
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors());
 mongoose
   .connect(
-    "mongodb+srv://devang:devang123456@cluster0.yvmynfk.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://priyanshu:priyanshu921@naruto.sf8tp46.mongodb.net/theSpotifyClone?retryWrites=true&w=majority"
   )
   .then(() => {
     app.listen(3001, () => {
@@ -24,9 +20,5 @@ mongoose
   .catch((error) => {
     console.log("No Database Found ");
   });
-app.get("/", (req, res) => {
-  res.send("Welcome to backend");
-  return 1;
-});
-app.use('/user',userRouter)
-app.use('/playList',playListRouter)
+app.use("/music", express.static(__dirname + "/assets/songs"));
+app.use("/api", routes);
